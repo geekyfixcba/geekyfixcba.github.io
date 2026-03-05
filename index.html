@@ -37,28 +37,25 @@
             transition: all 0.3s ease;
             min-height: 100vh;
             justify-content: flex-start;
-            overflow-x: hidden; /* Evita scrolls raros con la animación */
+            overflow-x: hidden;
         }
 
-        /* --- Definición de Animaciones de Entrada --- */
+        /* Animación de entrada */
         @keyframes fadeInSlideUp {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Clase base para aplicar la animación */
         .animate-in {
-            opacity: 0; /* Empieza invisible */
+            opacity: 0;
             animation: fadeInSlideUp 0.6s ease-out forwards;
         }
 
-        /* --- Estilos Existentes (Modificados ligeramente para la animación) --- */
         .theme-switch-wrapper {
             position: fixed;
             top: 15px;
             right: 15px;
             z-index: 100;
-            /* El toggle aparece sin retraso para ser útil rápido */
         }
         .theme-switch { display: inline-block; height: 26px; position: relative; width: 48px; }
         .theme-switch input { display: none; }
@@ -72,6 +69,7 @@
             background-color: #fff; bottom: 3px; content: ""; height: 20px; left: 3px;
             position: absolute; transition: .4s; width: 20px; border-radius: 50%; z-index: 2;
         }
+        input:checked + .slider { background: var(--primary-gradient); }
         input:checked + .slider:before { transform: translateX(22px); }
 
         .logo-container {
@@ -81,9 +79,9 @@
             background: var(--primary-gradient);
             padding: 3px;
             box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-            animation: float 4s ease-in-out infinite, fadeInSlideUp 0.6s ease-out forwards; /* Float permanente + Fade inicial */
+            animation: float 4s ease-in-out infinite, fadeInSlideUp 0.6s ease-out forwards;
             margin-bottom: 8px;
-            animation-delay: 0.1s; /* Primer elemento */
+            animation-delay: 0.1s;
         }
         .logo-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: white; }
 
@@ -113,21 +111,20 @@
             border: 1px solid var(--border-color);
             position: relative;
             text-align: center;
+            cursor: pointer;
         }
         
-        /* Retrasos escalonados para los botones */
         .links-container .link-card:nth-child(1) { animation-delay: 0.4s; }
         .links-container .link-card:nth-child(2) { animation-delay: 0.5s; }
         .links-container .link-card:nth-child(3) { animation-delay: 0.6s; }
 
         .link-card i { margin-right: 10px; font-size: 1.1rem; flex-shrink: 0; }
-
         .whatsapp-btn { background: #25D366; color: white; border: none; }
         .vcard-btn { background: var(--text-color); color: var(--bg-color); border: none; margin-top: 4px; }
 
         .faq-container { width: 100%; max-width: 340px; margin-top: 15px; animation-delay: 0.7s; }
         .faq-title { text-align: center; font-size: 0.95rem; margin-bottom: 8px; color: var(--text-color); font-weight: bold; }
-        .faq-item { background: var(--card-bg); border-radius: 8px; margin-bottom: 5px; border: 1px solid var(--border-color); }
+        .faq-item { background: var(--card-bg); border-radius: 8px; margin-bottom: 5px; border: 1px solid var(--border-color); overflow: hidden; }
         .faq-question { padding: 8px 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; font-weight: 500; }
         .faq-answer { padding: 0 12px; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 0.75rem; color: var(--sub-text); }
         .faq-item.active .faq-answer { max-height: 120px; padding: 0 12px 10px 12px; }
@@ -168,7 +165,7 @@
         <a href="https://geekyfix.tech/" class="link-card animate-in">
             <i class="fas fa-globe"></i> Visitar GeekyFix.tech
         </a>
-        <div onclick="downloadVCard()" class="link-card vcard-btn animate-in">
+        <div onclick="addContact()" class="link-card vcard-btn animate-in">
             <i class="fas fa-address-book"></i> Agregame a tus contactos
         </div>
     </div>
@@ -191,6 +188,7 @@
     </div>
 
     <script>
+        // Lógica de Modo Oscuro
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         if (localStorage.getItem('theme') === 'dark-mode') {
             document.body.classList.add('dark-mode');
@@ -202,23 +200,37 @@
             localStorage.setItem('theme', theme);
         });
 
+        // FAQ Toggle
         function toggleFaq(element) {
             element.parentElement.classList.toggle('active');
         }
 
-        function downloadVCard() {
+        // Función vCard mejorada para abrir aplicación de Contactos
+        function addContact() {
             const vCardData = [
-                'BEGIN:VCARD', 'VERSION:3.0', 'FN:Ignacio Abril - GeekyFix', 'ORG:GeekyFix.tech',
-                'TEL;TYPE=CELL,VOICE:+5493512179222', 'EMAIL;TYPE=PREF,INTERNET:nachoabril@gmail.com',
-                'URL;TYPE=Website:https://geekyfix.tech/', 'URL;TYPE=GitHub:https://geekyfixcba.github.io/',
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+                'FN:Ignacio Abril - GeekyFix',
+                'ORG:GeekyFix.tech',
+                'TITLE:IT Support Specialist',
+                'TEL;TYPE=CELL,VOICE:+5493512179222',
+                'EMAIL;TYPE=PREF,INTERNET:nachoabril@gmail.com',
+                'URL;TYPE=Website:https://geekyfix.tech/',
+                'URL;TYPE=GitHub:https://geekyfixcba.github.io/',
                 'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/geekyfixcba/',
                 'X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/geekyfix.cba/',
-                'ADR;TYPE=HOME:;;Córdoba;Córdoba;;Argentina', 'NOTE:Soporte técnico para el Hogar y Pymes.', 'END:VCARD'
+                'ADR;TYPE=HOME:;;Córdoba;Córdoba;;Argentina',
+                'NOTE:Soporte técnico para el Hogar y Pymes.',
+                'END:VCARD'
             ].join('\n');
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = 'Nacho_Abril_GeekyFix.vcf'; a.click();
+
+            const uri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vCardData);
+            const link = document.createElement('a');
+            link.href = uri;
+            link.setAttribute('download', 'Nacho_Abril_GeekyFix.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
