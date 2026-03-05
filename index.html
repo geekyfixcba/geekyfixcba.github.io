@@ -32,84 +32,54 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 60px 20px 40px 20px;
+            padding: 40px 15px 20px 15px; /* Padding reducido */
             margin: 0;
             transition: all 0.3s ease;
             min-height: 100vh;
+            justify-content: center; /* Centrado vertical para evitar aire abajo */
         }
 
-        /* Toggle de Modo Oscuro */
         .theme-switch-wrapper {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 100;
         }
-        .theme-switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
+        .theme-switch { display: inline-block; height: 28px; position: relative; width: 50px; }
         .theme-switch input { display: none; }
         .slider {
             background-color: var(--toggle-bg);
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-            border-radius: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
+            bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0;
+            transition: .4s; border-radius: 34px; display: flex; align-items: center;
+            justify-content: space-between; padding: 0 5px;
         }
         .slider:before {
-            background-color: #fff;
-            bottom: 4px;
-            content: "";
-            height: 26px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 26px;
-            border-radius: 50%;
-            z-index: 2;
+            background-color: #fff; bottom: 3px; content: ""; height: 22px; left: 3px;
+            position: absolute; transition: .4s; width: 22px; border-radius: 50%; z-index: 2;
         }
-        input:checked + .slider { background: var(--primary-gradient); }
-        input:checked + .slider:before { transform: translateX(26px); }
+        input:checked + .slider:before { transform: translateX(22px); }
 
-        /* Logo Antigravity */
         .logo-container {
-            width: 120px;
-            height: 120px;
+            width: 90px; /* Tamaño reducido */
+            height: 90px;
             border-radius: 50%;
             background: var(--primary-gradient);
-            padding: 4px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            padding: 3px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             animation: float 4s ease-in-out infinite;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: white;
-        }
+        .logo-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: white; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-8px); }
         }
 
-        h1 { font-size: 1.6rem; margin-bottom: 5px; }
-        .subtitle { color: var(--sub-text); margin-bottom: 30px; text-align: center; line-height: 1.4; }
+        h1 { font-size: 1.4rem; margin: 5px 0; }
+        .subtitle { font-size: 0.9rem; color: var(--sub-text); margin-bottom: 20px; text-align: center; line-height: 1.2; }
 
-        .links-container { width: 100%; max-width: 400px; }
+        .links-container { width: 100%; max-width: 360px; }
 
         .link-card {
             background: var(--card-bg);
@@ -118,36 +88,29 @@
             justify-content: center;
             text-decoration: none;
             color: var(--text-color);
-            padding: 16px;
-            margin-bottom: 12px;
-            border-radius: 15px;
+            padding: 12px; /* Padding reducido */
+            margin-bottom: 8px; /* Margen reducido */
+            border-radius: 12px;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
             position: relative;
-            cursor: pointer;
         }
-        .link-card i { position: absolute; left: 20px; font-size: 1.4rem; }
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: #E91E63;
-        }
+        .link-card i { position: absolute; left: 15px; font-size: 1.2rem; }
 
         .whatsapp-btn { background: #25D366; color: white; border: none; }
-        .vcard-btn { background: var(--text-color); color: var(--bg-color); border: none; margin-top: 10px; }
+        .vcard-btn { background: var(--text-color); color: var(--bg-color); border: none; margin-top: 5px; }
 
-        /* FAQ */
-        .faq-container { width: 100%; max-width: 400px; margin-top: 40px; }
-        .faq-title { text-align: center; font-size: 1.2rem; margin-bottom: 20px; color: var(--text-color); }
-        .faq-item { background: var(--card-bg); border-radius: 10px; margin-bottom: 10px; border: 1px solid var(--border-color); overflow: hidden; }
-        .faq-question { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 0.9rem; color: var(--sub-text); }
-        .faq-item.active .faq-answer { max-height: 150px; padding: 0 15px 15px 15px; }
-        .faq-item.active i { transform: rotate(180deg); }
+        .faq-container { width: 100%; max-width: 360px; margin-top: 20px; }
+        .faq-title { text-align: center; font-size: 1rem; margin-bottom: 10px; color: var(--text-color); font-weight: bold; }
+        .faq-item { background: var(--card-bg); border-radius: 8px; margin-bottom: 6px; border: 1px solid var(--border-color); }
+        .faq-question { padding: 10px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 500; }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 0.8rem; color: var(--sub-text); }
+        .faq-item.active .faq-answer { max-height: 100px; padding: 0 15px 10px 15px; }
 
-        .social-row { display: flex; gap: 25px; margin-top: 25px; }
-        .social-icon { font-size: 1.8rem; color: var(--text-color); transition: 0.3s; }
+        .social-row { display: flex; gap: 20px; margin-top: 15px; }
+        .social-icon { font-size: 1.5rem; color: var(--text-color); transition: 0.3s; }
     </style>
 </head>
 <body>
@@ -185,11 +148,11 @@
         <div class="faq-title">Preguntas Frecuentes</div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">¿Trabajás a domicilio? <i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer">Sí, brindo soporte técnico presencial en Córdoba Capital, llegando a barrios como Arguello, Villa Belgrano, y alrededores.</div>
+            <div class="faq-answer">Sí, en Córdoba Capital (Arguello, Villa Belgrano y alrededores).</div>
         </div>
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">¿Ayudás con trámites online? <i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer">Exacto. Ayudo con el uso de Home Banking, QR, Billeteras Virtuales, PAMI, ANSES, turnos médicos y configuración de aplicaciones esenciales.</div>
+            <div class="faq-answer">Ayudo con Home Banking, Billeteras Virtuales, PAMI, ANSES y turnos médicos.</div>
         </div>
     </div>
 
@@ -199,7 +162,6 @@
     </div>
 
     <script>
-        // Modo Oscuro
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         if (localStorage.getItem('theme') === 'dark-mode') {
             document.body.classList.add('dark-mode');
@@ -211,35 +173,23 @@
             localStorage.setItem('theme', theme);
         });
 
-        // FAQ Toggle
         function toggleFaq(element) {
             element.parentElement.classList.toggle('active');
         }
 
-        // vCard
         function downloadVCard() {
             const vCardData = [
-                'BEGIN:VCARD',
-                'VERSION:3.0',
-                'FN:Ignacio Abril - GeekyFix',
-                'ORG:GeekyFix.tech',
-                'TITLE:IT Support Specialist',
-                'TEL;TYPE=CELL,VOICE:+5493512179222',
-                'EMAIL;TYPE=PREF,INTERNET:nachoabril@gmail.com',
-                'URL;TYPE=Website:https://geekyfix.tech/',
-                'URL;TYPE=GitHub:https://geekyfixcba.github.io/',
+                'BEGIN:VCARD', 'VERSION:3.0', 'FN:Ignacio Abril - GeekyFix', 'ORG:GeekyFix.tech',
+                'TEL;TYPE=CELL,VOICE:+5493512179222', 'EMAIL;TYPE=PREF,INTERNET:nachoabril@gmail.com',
+                'URL;TYPE=Website:https://geekyfix.tech/', 'URL;TYPE=GitHub:https://geekyfixcba.github.io/',
                 'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/geekyfixcba/',
                 'X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/geekyfix.cba/',
-                'ADR;TYPE=HOME:;;Córdoba;Córdoba;;Argentina',
-                'NOTE:Soporte técnico para el Hogar y Pymes.',
-                'END:VCARD'
+                'ADR;TYPE=HOME:;;Córdoba;Córdoba;;Argentina', 'NOTE:Soporte técnico para el Hogar y Pymes.', 'END:VCARD'
             ].join('\n');
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Nacho_Abril_GeekyFix.vcf';
-            a.click();
+            a.href = url; a.download = 'Nacho_Abril_GeekyFix.vcf'; a.click();
         }
     </script>
 </body>
