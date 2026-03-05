@@ -13,17 +13,17 @@
             --text-color: #333333;
             --sub-text: #666666;
             --border-color: #eeeeee;
+            --toggle-bg: #dddddd;
         }
 
-        /* Modo Oscuro */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #121212;
-                --card-bg: #1e1e1e;
-                --text-color: #f8f9fa;
-                --sub-text: #bbbbbb;
-                --border-color: #333333;
-            }
+        /* Variables para Modo Oscuro Manual */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f8f9fa;
+            --sub-text: #bbbbbb;
+            --border-color: #333333;
+            --toggle-bg: #444444;
         }
 
         body {
@@ -33,12 +33,60 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 60px 20px 40px 20px;
             margin: 0;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            min-height: 100vh;
         }
 
-        /* Logo con animación flotante */
+        /* Toggle de Modo Oscuro */
+        .theme-switch-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+        .theme-switch input { display: none; }
+        .slider {
+            background-color: var(--toggle-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        input:checked + .slider { background: var(--primary-gradient); }
+        input:checked + .slider:before { transform: translateX(26px); }
+        .slider i { color: #f1c40f; font-size: 14px; }
+
+        /* Logo con efecto Antigravity */
         .logo-container {
             width: 120px;
             height: 120px;
@@ -63,10 +111,11 @@
         }
 
         h1 { font-size: 1.6rem; margin-bottom: 5px; }
-        .subtitle { color: var(--sub-text); margin-bottom: 30px; text-align: center; }
+        .subtitle { color: var(--sub-text); margin-bottom: 30px; text-align: center; line-height: 1.4; }
 
         .links-container { width: 100%; max-width: 400px; }
 
+        /* Estilo Stick para los botones */
         .link-card {
             background: var(--card-bg);
             display: flex;
@@ -82,53 +131,44 @@
             border: 1px solid var(--border-color);
             position: relative;
         }
-
-        .link-card i {
-            position: absolute;
-            left: 20px;
-            font-size: 1.4rem;
-        }
-
+        .link-card i { position: absolute; left: 20px; font-size: 1.4rem; }
         .link-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border-color: #E91E63;
         }
 
-        /* Botón Destacado de WhatsApp */
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-        }
-        .whatsapp-btn:hover {
-            background: #20ba5a;
-            border-color: transparent;
-        }
+        /* Botón de WhatsApp */
+        .whatsapp-btn { background: #25D366; color: white; border: none; }
+        .whatsapp-btn:hover { background: #20ba5a; border-color: transparent; }
 
-        .social-row {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .social-icon {
-            font-size: 1.8rem;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        .social-icon:hover {
-            color: #E91E63;
-        }
+        /* Redes Sociales */
+        .social-row { display: flex; gap: 25px; margin-top: 25px; }
+        .social-icon { font-size: 1.8rem; color: var(--text-color); transition: 0.3s; }
+        .social-icon:hover { color: #E91E63; transform: scale(1.1); }
     </style>
 </head>
 <body>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
 
     <div class="logo-container">
         <img src="logo.png" alt="GeekyFix Logo">
     </div>
 
     <h1>Ignacio Abril</h1>
-    <div class="subtitle">Soporte IT & Soluciones para Adultos Mayores <br> Córdoba, Argentina 🇦🇷</div>
+    <div class="subtitle">
+        Soporte IT & Soluciones para Adultos Mayores <br> 
+        Córdoba, Argentina 🇦🇷
+    </div>
 
     <div class="links-container">
         <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Te%20escribo%20desde%20GeekyFix,%20necesito%20ayuda%20con%20un%20tema%20técnico." class="link-card whatsapp-btn">
@@ -145,13 +185,36 @@
     </div>
 
     <div class="social-row">
-        <a href="https://instagram.com/" target="_blank" class="social-icon">
+        <a href="https://www.instagram.com/geekyfixcba/" target="_blank" class="social-icon">
             <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://facebook.com/" target="_blank" class="social-icon">
+        <a href="https://www.facebook.com/geekyfix.cba/" target="_blank" class="social-icon">
             <i class="fab fa-facebook"></i>
         </a>
     </div>
 
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+            if (currentTheme === 'dark-mode') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
 </body>
 </html>
