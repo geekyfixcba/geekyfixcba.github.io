@@ -40,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Animación de entrada */
         @keyframes fadeInSlideUp {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -118,7 +117,7 @@
         .links-container .link-card:nth-child(2) { animation-delay: 0.5s; }
         .links-container .link-card:nth-child(3) { animation-delay: 0.6s; }
 
-        .link-card i { margin-right: 10px; font-size: 1.1rem; flex-shrink: 0; }
+        .link-card i { position: absolute; left: 15px; font-size: 1.1rem; }
         .whatsapp-btn { background: #25D366; color: white; border: none; }
         .vcard-btn { background: var(--text-color); color: var(--bg-color); border: none; margin-top: 4px; }
 
@@ -165,9 +164,9 @@
         <a href="https://geekyfix.tech/" class="link-card animate-in">
             <i class="fas fa-globe"></i> Visitar GeekyFix.tech
         </a>
-        <div onclick="addContact()" class="link-card vcard-btn animate-in">
+        <a href="GeekyFix.vcf" class="link-card vcard-btn animate-in">
             <i class="fas fa-address-book"></i> Agregame a tus contactos
-        </div>
+        </a>
     </div>
 
     <div class="faq-container animate-in">
@@ -188,7 +187,6 @@
     </div>
 
     <script>
-        // Lógica de Modo Oscuro
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         if (localStorage.getItem('theme') === 'dark-mode') {
             document.body.classList.add('dark-mode');
@@ -200,37 +198,8 @@
             localStorage.setItem('theme', theme);
         });
 
-        // FAQ Toggle
         function toggleFaq(element) {
             element.parentElement.classList.toggle('active');
-        }
-
-        // Función vCard mejorada para abrir aplicación de Contactos
-        function addContact() {
-            const vCardData = [
-                'BEGIN:VCARD',
-                'VERSION:3.0',
-                'FN:Ignacio Abril - GeekyFix',
-                'ORG:GeekyFix.tech',
-                'TITLE:IT Support Specialist',
-                'TEL;TYPE=CELL,VOICE:+5493512179222',
-                'EMAIL;TYPE=PREF,INTERNET:nachoabril@gmail.com',
-                'URL;TYPE=Website:https://geekyfix.tech/',
-                'URL;TYPE=GitHub:https://geekyfixcba.github.io/',
-                'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/geekyfixcba/',
-                'X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/geekyfix.cba/',
-                'ADR;TYPE=HOME:;;Córdoba;Córdoba;;Argentina',
-                'NOTE:Soporte técnico para el Hogar y Pymes.',
-                'END:VCARD'
-            ].join('\n');
-
-            const uri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vCardData);
-            const link = document.createElement('a');
-            link.href = uri;
-            link.setAttribute('download', 'Nacho_Abril_GeekyFix.vcf');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
     </script>
 </body>
