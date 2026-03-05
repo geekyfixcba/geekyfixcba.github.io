@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Ignacio Abril - GeekyFix
+ORG:GeekyFix.tech
+TITLE:IT Support Specialist
+TEL;TYPE=CELL,VOICE:+5493512179222
+EMAIL;TYPE=PREF,INTERNET:nachoabril@gmail.com
+URL;TYPE=Website:https://geekyfix.tech/
+URL;TYPE=GitHub:https://geekyfixcba.github.io/
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/geekyfixcba/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/geekyfix.cba/
+ADR;TYPE=HOME:;;Córdoba;Córdoba;;Argentina
+NOTE:Soporte técnico para el Hogar y Pymes.
+END:VCARD
