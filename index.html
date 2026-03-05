@@ -74,4 +74,84 @@
             justify-content: center;
             text-decoration: none;
             color: var(--text-color);
-            padding: 16
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .link-card i {
+            position: absolute;
+            left: 20px;
+            font-size: 1.4rem;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #E91E63;
+        }
+
+        /* Botón Destacado de WhatsApp */
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            border-color: transparent;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .social-icon {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        .social-icon:hover {
+            color: #E91E63;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="logo.png" alt="GeekyFix Logo">
+    </div>
+
+    <h1>Ignacio Abril</h1>
+    <div class="subtitle">Soporte IT & Soluciones para Adultos Mayores <br> Córdoba, Argentina 🇦🇷</div>
+
+    <div class="links-container">
+        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Te%20escribo%20desde%20GeekyFix,%20necesito%20ayuda%20con%20un%20tema%20técnico." class="link-card whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Soporte por WhatsApp
+        </a>
+
+        <a href="https://geekyfix.tech/" class="link-card">
+            <i class="fas fa-globe"></i> Visitar GeekyFix.tech
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nachoabril@gmail.com" class="link-card">
+            <i class="fab fa-google"></i> Escribime un Gmail
+        </a>
+    </div>
+
+    <div class="social-row">
+        <a href="https://instagram.com/" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/" target="_blank" class="social-icon">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+
+</body>
+</html>
