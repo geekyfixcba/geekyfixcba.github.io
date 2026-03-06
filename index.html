@@ -105,17 +105,14 @@
             margin-bottom: 6px;
             border-radius: 10px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
             position: relative;
             text-align: center;
+            line-height: 1.3;
         }
         
-        .links-container .link-card:nth-child(1) { animation-delay: 0.4s; }
-        .links-container .link-card:nth-child(2) { animation-delay: 0.5s; }
-        .links-container .link-card:nth-child(3) { animation-delay: 0.6s; }
-
         .link-card i { position: absolute; left: 12px; font-size: 1rem; }
         .whatsapp-btn { background: #25D366; color: white; border: none; }
         .vcard-btn { background: var(--text-color); color: var(--bg-color); border: none; }
@@ -153,18 +150,20 @@
     </div>
 
     <h1 class="animate-in">Ignacio Abril</h1>
-    <div class="subtitle animate-in">Soporte IT & Soluciones para el hogar <br> Córdoba, Argentina 🇦🇷</div>
+    <div class="subtitle animate-in">Soporte IT & Soluciones Humanas <br> Córdoba, Argentina 🇦🇷</div>
 
     <div class="links-container">
-        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Te%20escribo%20desde%20GeekyFix,%20necesito%20ayuda%20con%20un%20tema%20técnico." class="link-card whatsapp-btn animate-in">
+        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Te%20escribo%20desde%20GeekyFix,%20necesito%20ayuda%20con%20un%20tema%20técnico." class="link-card whatsapp-btn animate-in" style="animation-delay: 0.4s;">
             <i class="fab fa-whatsapp"></i> Soporte por WhatsApp
         </a>
-        <a href="https://geekyfix.tech/" class="link-card animate-in">
-            <i class="fas fa-globe"></i>Sos pyme tenes algun proyecto y necesitas asesoria? Visitar GeekyFix.tech
+
+        <a href="https://geekyfix.tech/" target="_blank" rel="noopener noreferrer" class="link-card animate-in" style="animation-delay: 0.5s;">
+            <i class="fas fa-rocket"></i> ¿Sos Pyme y necesitás asesoría? Visitá GeekyFix.tech
         </a>
-        <a href="GeekyFix.vcf" class="link-card vcard-btn animate-in">
+
+        <div onclick="saveToContacts()" class="link-card vcard-btn animate-in" style="animation-delay: 0.6s;">
             <i class="fas fa-address-book"></i> Agregame a tus contactos
-        </a>
+        </div>
     </div>
 
     <div class="faq-container animate-in">
@@ -189,6 +188,7 @@
     </div>
 
     <script>
+        // Modo Oscuro persistente
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         if (localStorage.getItem('theme') === 'dark-mode') {
             document.body.classList.add('dark-mode');
@@ -200,8 +200,51 @@
             localStorage.setItem('theme', theme);
         });
 
+        // FAQ Acordeón
         function toggleFaq(element) {
             element.parentElement.classList.toggle('active');
+        }
+
+        // Función de Guardar Contacto (Android Intent + Fallback vCard)
+        function saveToContacts() {
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const contact = {
+                name: "Ignacio Abril",
+                phone: "+5493512179222",
+                email: "nachoabril@gmail.com",
+                url: "https://geekyfix.tech",
+                company: "GeekyFix"
+            };
+
+            if (isAndroid) {
+                const intentUri = `intent:#Intent;` +
+                    `action=android.intent.action.INSERT;` +
+                    `type=vnd.android.cursor.dir/contact;` +
+                    `S.name=${encodeURIComponent(contact.name)};` +
+                    `S.phone=${encodeURIComponent(contact.phone)};` +
+                    `S.email=${encodeURIComponent(contact.email)};` +
+                    `S.company=${encodeURIComponent(contact.company)};` +
+                    `S.website=${encodeURIComponent(contact.url)};` +
+                    `end`;
+                window.location.href = intentUri;
+            } else {
+                const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contact.name}
+ORG:${contact.company}
+TEL;TYPE=CELL:${contact.phone}
+EMAIL:${contact.email}
+URL:${contact.url}
+END:VCARD`;
+                const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8;' });
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'IgnacioAbril.vcf');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         }
     </script>
 </body>
