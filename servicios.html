@@ -57,7 +57,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
+    <section class="relative pt-24 pb-28 lg:pt-36 lg:pb-44 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1586527155314-1d25428324ff?auto=format&fit=crop&q=80&w=2000" alt="Persona trabajando en computadora" class="w-full h-full object-cover " referrerPolicy="no-referrer">
+            <div class="absolute inset-0 bg-gradient-to-b from-gray-50/80 via-gray-50/90 to-gray-50 dark:from-gray-950/80 dark:via-gray-950/90 dark:to-gray-950"></div>
+        </div>
+
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
                 Tu tecnología, <span class="text-brand-600 dark:text-brand-500">funcionando sin problemas.</span>
@@ -70,7 +76,7 @@
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                     Contactar por WhatsApp
                 </a>
-                <a href="#servicios" class="inline-flex justify-center items-center px-6 py-3 border border-gray-300 dark:border-gray-700 text-base font-medium rounded-xl text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                <a href="#servicios" class="inline-flex justify-center items-center px-6 py-3 border border-gray-300 dark:border-gray-700 text-base font-medium rounded-xl text-gray-700 dark:text-gray-200 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 transition-all">
                     Ver Servicios
                 </a>
             </div>
@@ -87,92 +93,113 @@
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">La tecnología debería facilitarte la vida, no complicártela. Si te pasa algo de esto, dejalo en mis manos.</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20La%20compu%20anda%20muy%20lenta%20y%20necesito%20ayuda." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
-                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600" alt="Computadora en escritorio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20La%20compu%20anda%20muy%20lenta%20y%20necesito%20ayuda." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
+                        <img src="https://images.unsplash.com/photo-1602763288580-927cfda37a72?auto=format&fit=crop&q=80&w=600" alt="Computadora cargando" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">"La compu anda muy lenta"</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Si tarda una eternidad en prender o se traba, la limpio y la dejo rápida como el primer día.</p>
+                    <div class="px-2 pb-2 flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"La compu anda muy lenta"</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Si tarda una eternidad en prender o se traba, la limpio y la dejo rápida como el primer día.</p>
+                    </div>
                 </a>
 
                 <!-- Service 2 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20el%20Wi-Fi." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
-                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" alt="Router Wi-Fi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20el%20Wi-Fi." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
+                        <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&q=80&w=600" alt="Router Wi-Fi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">"El Wi-Fi no llega bien"</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Configuro tu red para que tengas buena señal de internet en toda la casa, sin cortes molestos.</p>
+                    <div class="px-2 pb-2 flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"El Wi-Fi no llega bien"</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Configuro tu red para que tengas buena señal de internet en toda la casa, sin cortes molestos.</p>
+                    </div>
                 </a>
 
                 <!-- Service 3 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20a%20distancia." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
-                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20a%20distancia." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&q=80&w=600" alt="Persona usando notebook" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">Ayuda a distancia</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Me conecto a tu compu a distancia y te soluciono el problema en el momento, sin que te muevas de tu casa.</p>
+                    <div class="px-2 pb-2 flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Ayuda a distancia</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Me conecto a tu compu a distancia y te soluciono el problema en el momento, sin que te muevas de tu casa.</p>
+                    </div>
                 </a>
 
                 <!-- Service 4 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Quiero%20renovar%20mi%20compu%20vieja." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
-                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Quiero%20renovar%20mi%20compu%20vieja." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600" alt="Componentes de PC" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">Renovar la compu vieja</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Le damos una segunda vida a tu equipo cambiándole algunas piezas para que no tengas que comprar uno nuevo.</p>
+                    <div class="px-2 pb-2 flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Renovar la compu vieja</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Le damos una segunda vida a tu equipo cambiándole algunas piezas para que no tengas que comprar uno nuevo.</p>
+                    </div>
                 </a>
 
                 <!-- Service 5 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20la%20impresora." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
-                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20la%20impresora." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=600" alt="Impresora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">"La impresora no anda"</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Configuro impresoras, escáneres y otros aparatos que a veces se ponen rebeldes y no quieren funcionar.</p>
+                    <div class="px-2 pb-2 flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"La impresora no anda"</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Configuro impresoras, escáneres y otros aparatos que a veces se ponen rebeldes y no quieren funcionar.</p>
+                    </div>
                 </a>
 
                 <!-- Service 6 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20que%20me%20ense%C3%B1es%20a%20usar%20algo." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
-                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600" alt="Personas aprendiendo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20que%20me%20ense%C3%B1es%20a%20usar%20algo." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
+                        <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&q=80&w=600" alt="Personas aprendiendo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">Te enseño a usar tus equipos</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Te explico con mucha paciencia cómo usar programas, hacer trámites online o configurar tu celular nuevo.</p>
+                    <div class="px-2 pb-2 flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Te enseño a usar tus equipos</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Te puedo ayudar y enseñarte a usar programas, hacer trámites online o configurar tu celular nuevo.</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Methodology Section -->
-    <section class="py-20 bg-gray-50 dark:bg-gray-950">
+    <section class="py-20 bg-gray-50 dark:bg-gray-950 overflow-hidden">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 step-item opacity-0 translate-y-8 transition-all duration-700 ease-out">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white">¿Cómo trabajo?</h2>
                 <p class="mt-4 text-gray-600 dark:text-gray-400">Un proceso simple y transparente para tu tranquilidad.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 <!-- Connecting line for desktop -->
-                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gray-200 dark:bg-gray-800 z-0"></div>
+                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gray-200 dark:bg-gray-800 z-0 origin-left scale-x-0 transition-transform duration-1000 delay-300 ease-out line-item"></div>
 
-                <div class="relative z-10 flex flex-col items-center text-center">
-                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm">1</div>
+                <div class="relative z-10 flex flex-col items-center text-center step-item opacity-0 translate-y-8 transition-all duration-700 delay-100 ease-out">
+                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm relative group transition-transform hover:-translate-y-1">
+                        <div class="absolute inset-0 rounded-full bg-brand-50 dark:bg-brand-900/30 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
+                        1
+                    </div>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Contacto</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Me escribís por WhatsApp contándome qué le pasa a tu equipo.</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm px-4">Me escribís por WhatsApp contándome qué le pasa a tu equipo.</p>
                 </div>
 
-                <div class="relative z-10 flex flex-col items-center text-center">
-                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm">2</div>
+                <div class="relative z-10 flex flex-col items-center text-center step-item opacity-0 translate-y-8 transition-all duration-700 delay-300 ease-out">
+                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm relative group transition-transform hover:-translate-y-1">
+                        <div class="absolute inset-0 rounded-full bg-brand-50 dark:bg-brand-900/30 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
+                        2
+                    </div>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Diagnóstico</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Evaluamos la mejor solución, ya sea mediante soporte remoto o visita a domicilio.</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm px-4">Evaluamos la mejor solución, ya sea mediante soporte remoto o visita a domicilio.</p>
                 </div>
 
-                <div class="relative z-10 flex flex-col items-center text-center">
-                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm">3</div>
+                <div class="relative z-10 flex flex-col items-center text-center step-item opacity-0 translate-y-8 transition-all duration-700 delay-500 ease-out">
+                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm relative group transition-transform hover:-translate-y-1">
+                        <div class="absolute inset-0 rounded-full bg-brand-50 dark:bg-brand-900/30 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
+                        3
+                    </div>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Solución</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Tu equipo queda reparado, optimizado y listo para seguir funcionando.</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm px-4">Tu equipo queda reparado, optimizado y listo para seguir funcionando.</p>
                 </div>
             </div>
         </div>
@@ -337,6 +364,33 @@
                 submitBtn.disabled = false;
                 spinner.classList.add('hidden');
             }
+        });
+
+        // 3. Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('step-item')) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                    }
+                    if (entry.target.classList.contains('line-item')) {
+                        entry.target.classList.remove('scale-x-0');
+                        entry.target.classList.add('scale-x-100');
+                    }
+                    observer.unobserve(entry.target); // Solo animar una vez
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step-item, .line-item').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
