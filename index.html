@@ -229,20 +229,8 @@
 
         // 2. vCard
         document.getElementById('save-contact-btn').addEventListener('click', () => {
-            const isAndroid = /android/i.test(navigator.userAgent || navigator.vendor || window.opera);
-            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:GeekFix\nORG:GeekFix\nTITLE:Soporte técnico pensado para vos\nTEL;TYPE=WORK,VOICE:+5493512179222\nEMAIL;TYPE=WORK:nachoabril@gmail.com\nURL:https://geekyfix.tech\nEND:VCARD`;
-
-            if (isAndroid) {
-                const intentUrl = "intent://contacts/insert?phone=+5493512179222&name=GeekFix&email=nachoabril@gmail.com&company=GeekFix#Intent;scheme=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;end;";
-                const a = document.createElement('a');
-                a.href = intentUrl;
-                a.target = '_blank';
-                const fallbackTimeout = setTimeout(() => downloadVCard(vcardData), 500);
-                window.addEventListener('blur', () => clearTimeout(fallbackTimeout), { once: true });
-                a.click();
-            } else {
-                downloadVCard(vcardData);
-            }
+            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ignacio Abril - GeekyFix\nORG:GeekyFix\nTITLE:IT Support Specialist\nTEL;TYPE=CELL,VOICE,WORK:+5493512179222\nEMAIL;TYPE=WORK:nachoabril@gmail.com\nURL:https://geekyfixcba.github.io\nURL:https://geekyfixcba.tech\nADR;TYPE=WORK:;;;Cordoba;;;\nNOTE:Soporte técnico para el Hogar y Pymes.\nEND:VCARD`;
+            downloadVCard(vcardData);
         });
 
         function downloadVCard(data) {
