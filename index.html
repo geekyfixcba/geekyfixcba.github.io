@@ -228,8 +228,32 @@
         });
 
         // 2. vCard
-        document.getElementById('save-contact-btn').addEventListener('click', () => {
-            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ignacio Abril - GeekyFix\nORG:GeekyFix\nTITLE:IT Support Specialist\nTEL;TYPE=CELL,VOICE,WORK:+5493512179222\nEMAIL;TYPE=WORK:nachoabril@gmail.com\nURL:https://geekyfixcba.github.io\nURL:https://geekyfixcba.tech\nADR;TYPE=WORK:;;;Cordoba;;;\nNOTE:Soporte técnico para el Hogar y Pymes.\nEND:VCARD`;
+        document.getElementById('save-contact-btn').addEventListener('click', async () => {
+            // Function to convert image URL to base64
+            const getBase64Image = async (url) => {
+                try {
+                    const response = await fetch(url);
+                    const blob = await response.blob();
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                            // Extract just the base64 data part, removing the data:image/png;base64, prefix
+                            const base64data = reader.result.split(',')[1];
+                            resolve(base64data);
+                        };
+                        reader.onerror = reject;
+                        reader.readAsDataURL(blob);
+                    });
+                } catch (error) {
+                    console.error('Error loading image for vCard:', error);
+                    return null;
+                }
+            };
+
+            const base64Photo = await getBase64Image('https://geekyfixcba.github.io/logo.png');
+            const photoString = base64Photo ? `\nPHOTO;ENCODING=b;TYPE=PNG:${base64Photo}` : '';
+
+            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ignacio Abril - GeekyFix\nORG:GeekyFix\nTITLE:IT Support Specialist\nTEL;TYPE=CELL,VOICE,WORK:+5493512179222\nEMAIL;TYPE=WORK:nachoabril@gmail.com\nURL:https://geekyfixcba.github.io\nURL:https://geekyfixcba.tech\nADR;TYPE=WORK:;;;Cordoba;;;\nNOTE:Soporte técnico para el Hogar y Pymes.${photoString}\nEND:VCARD`;
             downloadVCard(vcardData);
         });
 
