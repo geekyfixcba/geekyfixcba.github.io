@@ -34,6 +34,15 @@
         .star-rating input:checked ~ label, .star-rating label:hover, .star-rating label:hover ~ label { color: #fbbf24; }
         .dark .star-rating label { color: #4b5563; }
         .dark .star-rating input:checked ~ label, .dark .star-rating label:hover, .dark .star-rating label:hover ~ label { color: #fbbf24; }
+        
+        /* Hide scrollbar for mobile carousel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
@@ -94,9 +103,9 @@
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">La tecnología debería facilitarte la vida, no complicártela. Si te pasa algo de esto, dejalo en mis manos.</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-4 sm:gap-8 pb-8 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid-cols-2 lg:grid-cols-3 hide-scrollbar">
                 <!-- Service 1 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20La%20compu%20anda%20muy%20lenta%20y%20necesito%20ayuda." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20La%20compu%20anda%20muy%20lenta%20y%20necesito%20ayuda." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1602763288580-927cfda37a72?auto=format&fit=crop&q=80&w=600" alt="Computadora cargando" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -111,7 +120,7 @@
                 </a>
 
                 <!-- Service 2 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20el%20Wi-Fi." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20el%20Wi-Fi." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&q=80&w=600" alt="Router Wi-Fi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -126,7 +135,7 @@
                 </a>
 
                 <!-- Service 3 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20a%20distancia." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20a%20distancia." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&q=80&w=600" alt="Persona usando notebook" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -141,7 +150,7 @@
                 </a>
 
                 <!-- Service 4 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Quiero%20renovar%20mi%20compu%20vieja." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Quiero%20renovar%20mi%20compu%20vieja." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600" alt="Componentes de PC" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -156,7 +165,7 @@
                 </a>
 
                 <!-- Service 5 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20la%20impresora." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20la%20impresora." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=600" alt="Impresora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -171,7 +180,7 @@
                 </a>
 
                 <!-- Service 6 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20que%20me%20ense%C3%B1es%20a%20usar%20algo." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20que%20me%20ense%C3%B1es%20a%20usar%20algo." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&q=80&w=600" alt="Personas aprendiendo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -186,7 +195,7 @@
                 </a>
 
                 <!-- Service 7 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20celular." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20celular." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600" alt="Celular en mano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -201,7 +210,7 @@
                 </a>
 
                 <!-- Service 8 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20saber%20sobre%20control%20parental." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20saber%20sobre%20control%20parental." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600" alt="Niño usando tablet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
@@ -216,7 +225,7 @@
                 </a>
 
                 <!-- Service 9 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20para%20guardar%20mis%20fotos%20y%20archivos." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20para%20guardar%20mis%20fotos%20y%20archivos." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
                         <img src="https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&q=80&w=600" alt="Fotos y recuerdos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
