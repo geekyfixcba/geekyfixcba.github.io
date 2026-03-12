@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeekFix | Servicios para Particulares</title>
+    <meta name="description" content="Soporte técnico para tu hogar. Reparación de PC, redes Wi-Fi y soporte remoto.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .star-rating input { display: none; }
+        .star-rating label { float: right; cursor: pointer; color: #d1d5db; transition: color 0.2s; }
+        .star-rating label:before { content: '★'; font-size: 2rem; }
+        .star-rating input:checked ~ label, .star-rating label:hover, .star-rating label:hover ~ label { color: #fbbf24; }
+        .dark .star-rating label { color: #4b5563; }
+        .dark .star-rating input:checked ~ label, .dark .star-rating label:hover, .dark .star-rating label:hover ~ label { color: #fbbf24; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="https://geekyfixcba.github.io/logo.png" alt="GeekFix Logo" class="w-10 h-10 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
+                <span class="font-bold text-xl tracking-tight">GeekFix</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors hidden sm:block">Volver a la Tarjeta</a>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+                Tu tecnología, <span class="text-brand-600 dark:text-brand-500">funcionando sin problemas.</span>
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+                Soporte técnico a domicilio y remoto para tu PC, notebook y red Wi-Fi. Soluciones rápidas, transparentes y pensadas para vos.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Te%20escribo%20desde%20la%20web%20de%20GeekyFix%2C%20necesito%20ayuda%20con%20mi%20equipo." target="_blank" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/30 transition-all hover:-translate-y-1">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    Contactar por WhatsApp
+                </a>
+                <a href="#servicios" class="inline-flex justify-center items-center px-6 py-3 border border-gray-300 dark:border-gray-700 text-base font-medium rounded-xl text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                    Ver Servicios
+                </a>
+            </div>
+        </div>
+        <!-- Background decoration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/10 dark:bg-brand-500/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-[#faf9f6] dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">Problemas comunes que resuelvo todos los días</h2>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">La tecnología debería facilitarte la vida, no complicártela. Si te pasa algo de esto, dejalo en mis manos.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                <!-- Service 1 -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20La%20compu%20anda%20muy%20lenta%20y%20necesito%20ayuda." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600" alt="Computadora en escritorio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">"La compu anda muy lenta"</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Si tarda una eternidad en prender o se traba, la limpio y la dejo rápida como el primer día.</p>
+                </a>
+
+                <!-- Service 2 -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20el%20Wi-Fi." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" alt="Router Wi-Fi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">"El Wi-Fi no llega bien"</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Configuro tu red para que tengas buena señal de internet en toda la casa, sin cortes molestos.</p>
+                </a>
+
+                <!-- Service 3 -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20a%20distancia." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&q=80&w=600" alt="Persona usando notebook" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">Ayuda a distancia</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Me conecto a tu compu a distancia y te soluciono el problema en el momento, sin que te muevas de tu casa.</p>
+                </a>
+
+                <!-- Service 4 -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Quiero%20renovar%20mi%20compu%20vieja." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600" alt="Componentes de PC" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">Renovar la compu vieja</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Le damos una segunda vida a tu equipo cambiándole algunas piezas para que no tengas que comprar uno nuevo.</p>
+                </a>
+
+                <!-- Service 5 -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20la%20impresora." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=600" alt="Impresora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">"La impresora no anda"</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Configuro impresoras, escáneres y otros aparatos que a veces se ponen rebeldes y no quieren funcionar.</p>
+                </a>
+
+                <!-- Service 6 -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20que%20me%20ense%C3%B1es%20a%20usar%20algo." target="_blank" class="group flex flex-col items-center text-center cursor-pointer">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200 dark:bg-gray-800 mb-6 rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600" alt="Personas aprendiendo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">Te enseño a usar tus equipos</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-4">Te explico con mucha paciencia cómo usar programas, hacer trámites online o configurar tu celular nuevo.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">¿Cómo trabajo?</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Un proceso simple y transparente para tu tranquilidad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Connecting line for desktop -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gray-200 dark:bg-gray-800 z-0"></div>
+
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm">1</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Contacto</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Me escribís por WhatsApp contándome qué le pasa a tu equipo.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm">2</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Diagnóstico</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Evaluamos la mejor solución, ya sea mediante soporte remoto o visita a domicilio.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm">3</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Solución</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Tu equipo queda reparado, optimizado y listo para seguir funcionando.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & Reviews Split Section -->
+    <section class="py-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- FAQ -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Preguntas Frecuentes</h2>
+                    <div class="space-y-4">
+                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <input type="checkbox" id="faq1" class="peer sr-only">
+                            <label for="faq1" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
+                                ¿Hacen reparaciones a domicilio?
+                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </label>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
+                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Claro, cubro zona norte de Córdoba (Arguello, Villa Belgrano y alrededores) para soporte presencial. Para otras zonas, consultame.</p>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <input type="checkbox" id="faq2" class="peer sr-only">
+                            <label for="faq2" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
+                                ¿Dás soporte remoto?
+                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </label>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
+                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Sí, utilizo RustDesk para solucionar problemas a distancia de forma segura y rápida sin que tengas que moverte de tu casa.</p>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <input type="checkbox" id="faq3" class="peer sr-only">
+                            <label for="faq3" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
+                                ¿Cuánto demora una reparación?
+                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </label>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
+                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Depende del problema. Optimizaciones, formateos y soporte remoto suelen resolverse en el día. Si requiere repuestos, te informo los tiempos exactos.</p>
+                            </div>
+                        </div>
+                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <input type="checkbox" id="faq4" class="peer sr-only">
+                            <label for="faq4" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
+                                ¿Qué métodos de pago aceptan?
+                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </label>
+                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
+                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Acepto Efectivo, Transferencias bancarias, MercadoPago y Criptomonedas (USDT/USDC).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews -->
+                <div>
+                    <div class="bg-gray-50 dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Dejanos tu reseña</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Tu opinión me ayuda a seguir mejorando el servicio.</p>
+                        
+                        <form id="review-form" class="space-y-4">
+                            <div class="star-rating flex flex-row-reverse justify-end mb-2">
+                                <input type="radio" id="star5" name="rating" value="5" required><label for="star5"></label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+                            </div>
+                            <input type="text" name="name" placeholder="Tu nombre" required class="w-full text-sm rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 focus:ring-brand-500 focus:border-brand-500 p-3">
+                            <textarea name="review" rows="3" placeholder="Contame tu experiencia..." required class="w-full text-sm rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 focus:ring-brand-500 focus:border-brand-500 p-3"></textarea>
+                            <button type="submit" id="submit-review-btn" class="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors flex justify-center items-center">
+                                <span>Enviar Reseña</span>
+                                <svg id="review-spinner" class="hidden animate-spin ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            </button>
+                            <div id="review-success" class="hidden text-sm text-green-600 dark:text-green-400 text-center font-medium mt-2">¡Gracias por tu reseña!</div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="https://geekyfixcba.github.io/logo.png" alt="GeekFix Logo" class="w-8 h-8 rounded-lg grayscale opacity-80">
+                <span class="font-bold text-lg tracking-tight">GeekFix</span>
+            </div>
+            <div class="flex gap-6 text-sm text-gray-400">
+                <a href="mailto:nachoabril@gmail.com" class="hover:text-white transition-colors">nachoabril@gmail.com</a>
+                <a href="https://wa.me/5493512179222" target="_blank" class="hover:text-white transition-colors">+54 9 351 217-9222</a>
+            </div>
+            <div class="text-sm text-gray-500">
+                &copy; 2026 GeekFix. Córdoba, Argentina.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // 1. Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // 2. Reviews (Same as index.html)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbytILCi7sIruJZnHmk2w49-ZtWcL9HLBYsoBRR4h2jaJdR_nIGwqj5MgFkhNcfrRsSB/exec';
+        const reviewForm = document.getElementById('review-form');
+        const submitBtn = document.getElementById('submit-review-btn');
+        const spinner = document.getElementById('review-spinner');
+        const successMsg = document.getElementById('review-success');
+
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            successMsg.classList.add('hidden');
+            submitBtn.disabled = true;
+            spinner.classList.remove('hidden');
+
+            const formData = new FormData(reviewForm);
+            const searchParams = new URLSearchParams(formData);
+
+            try {
+                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI') {
+                    await fetch(GOOGLE_SCRIPT_URL, { 
+                        method: 'POST', 
+                        mode: 'no-cors', 
+                        body: searchParams 
+                    });
+                } else {
+                    await new Promise(r => setTimeout(r, 1000));
+                }
+                successMsg.classList.remove('hidden');
+                reviewForm.reset();
+            } catch (error) {
+                console.error(error);
+            } finally {
+                submitBtn.disabled = false;
+                spinner.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
