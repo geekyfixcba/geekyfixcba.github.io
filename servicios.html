@@ -463,9 +463,16 @@
                 <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-8 h-8 rounded-lg grayscale opacity-80">
                 <span class="font-bold text-lg tracking-tight">GeekyFix</span>
             </div>
-            <div class="flex gap-6 text-sm text-gray-400">
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-gray-400 items-center">
                 <a href="mailto:nachoabril@gmail.com" class="hover:text-white transition-colors">nachoabril@gmail.com</a>
-                <a href="https://wa.me/5493512179222" target="_blank" class="hover:text-white transition-colors">+54 9 351 217-9222</a>
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/5493512179222" target="_blank" class="hover:text-white transition-colors">+54 9 351 217-9222</a>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="#" id="save-contact-btn" class="inline-flex items-center hover:text-white transition-colors group" title="Agendar en contactos">
+                        <svg class="w-4 h-4 mr-1.5 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                        Agendar contacto
+                    </a>
+                </div>
             </div>
             <div class="text-sm text-gray-500">
                 &copy; 2026 GeekyFix. Córdoba, Argentina.
@@ -562,6 +569,49 @@
         document.querySelectorAll('.step-item, .line-item').forEach(el => {
             observer.observe(el);
         });
+
+        // 4. vCard Generation
+        document.getElementById('save-contact-btn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            // Function to convert image URL to base64
+            const getBase64Image = async (url) => {
+                try {
+                    const response = await fetch(url);
+                    const blob = await response.blob();
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                            // Extract just the base64 data part, removing the data:image/png;base64, prefix
+                            const base64data = reader.result.split(',')[1];
+                            resolve(base64data);
+                        };
+                        reader.onerror = reject;
+                        reader.readAsDataURL(blob);
+                    });
+                } catch (error) {
+                    console.error('Error loading image for vCard:', error);
+                    return null;
+                }
+            };
+
+            const base64Photo = await getBase64Image('https://geekyfixcba.github.io/logo.png');
+            const photoString = base64Photo ? `\nPHOTO;ENCODING=b;TYPE=PNG:${base64Photo}` : '';
+
+            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ignacio Abril - GeekyFix\nORG:GeekyFix\nTITLE:IT Support Specialist\nTEL;TYPE=CELL,VOICE,WORK:+5493512179222\nEMAIL;TYPE=WORK:nachoabril@gmail.com\nURL:https://geekyfixcba.github.io\nURL:https://geekyfix.tech\nADR;TYPE=WORK:;;;Cordoba;;;\nNOTE:Soporte técnico para el Hogar y Pymes.${photoString}\nEND:VCARD`;
+            downloadVCard(vcardData);
+        });
+
+        function downloadVCard(data) {
+            const blob = new Blob([data], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'GeekyFix.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
 
     <!-- WhatsApp Floating Button -->
