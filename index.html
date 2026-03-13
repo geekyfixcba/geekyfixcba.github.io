@@ -3,26 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeekyFix | Servicios para Particulares</title>
-    <meta name="description" content="Soporte técnico para tu hogar. Reparación de PC, redes Wi-Fi y soporte remoto.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://geekyfixcba.github.io/servicios.html">
-    <meta property="og:site_name" content="GeekyFix">
-    <meta property="og:title" content="GeekyFix | Servicios para Particulares">
-    <meta property="og:description" content="Soporte técnico para tu hogar. Reparación de PC, redes Wi-Fi y soporte remoto.">
-    <meta property="og:image" content="https://geekyfixcba.github.io/logo.png">
-    <meta property="og:locale" content="es_AR">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://geekyfixcba.github.io/servicios.html">
-    <meta property="twitter:title" content="GeekyFix | Servicios para Particulares">
-    <meta property="twitter:description" content="Soporte técnico para tu hogar. Reparación de PC, redes Wi-Fi y soporte remoto.">
-    <meta property="twitter:image" content="https://geekyfixcba.github.io/logo.png">
+    <title>GeekyFix | Soluciones Informáticas</title>
+    <meta name="description" content="Soporte técnico integral para empresas y particulares.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -39,7 +23,7 @@
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
                     },
                     keyframes: {
                         fadeInUp: {
@@ -58,424 +42,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .star-rating input { display: none; }
-        .star-rating label { float: right; cursor: pointer; color: #d1d5db; transition: color 0.2s; }
-        .star-rating label:before { content: '★'; font-size: 2rem; }
-        .star-rating input:checked ~ label, .star-rating label:hover, .star-rating label:hover ~ label { color: #fbbf24; }
-        .dark .star-rating label { color: #4b5563; }
-        .dark .star-rating input:checked ~ label, .dark .star-rating label:hover, .dark .star-rating label:hover ~ label { color: #fbbf24; }
-        
-        /* Hide scrollbar for mobile carousel */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 transition-colors duration-300">
+    
+    <!-- Theme Toggle (Absolute top right) -->
+    <button id="theme-toggle" class="absolute top-6 right-6 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors opacity-0 animate-fade-in [animation-delay:1000ms]">
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+    </button>
 
-    <!-- Navigation -->
-    <nav class="w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group opacity-0 animate-fade-in-up [animation-delay:100ms]">
-                <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-10 h-10 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
-                <span class="font-bold text-xl tracking-tight">GeekyFix</span>
+    <div class="max-w-4xl w-full space-y-12">
+        <!-- Header -->
+        <div class="text-center space-y-4 sm:space-y-6">
+            <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-40 h-40 sm:w-44 sm:h-44 mx-auto rounded-3xl shadow-lg opacity-0 animate-fade-in-up">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight opacity-0 animate-fade-in-up [animation-delay:200ms]">Bienvenido a GeekyFix</h1>
+            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 opacity-0 animate-fade-in-up [animation-delay:400ms]">Seleccioná tu perfil para continuar</p>
+        </div>
+
+        <!-- Splitter Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+
+            <!-- Particulares -->
+            <a href="servicios.html" class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-3xl border-2 border-gray-100 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in-up [animation-delay:600ms]">
+                <div class="w-full h-36 sm:h-48 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600" alt="Hogar y Particulares" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
+                </div>
+                <div class="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Soy Particular</h2>
+                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Soporte técnico a domicilio, reparación de PC, mejora de Wi-Fi y asistencia remota.</p>
+                    <div class="mt-4 sm:mt-6 inline-flex items-center text-brand-600 dark:text-brand-400 font-semibold text-sm sm:text-base group-hover:translate-x-2 transition-transform">
+                        Ver servicios para el hogar
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
             </a>
-            <div class="flex items-center gap-4 opacity-0 animate-fade-in [animation-delay:800ms]">
-                <a href="index.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors hidden sm:block">Volver a la Tarjeta</a>
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                </button>
-            </div>
+
+            <!-- Empresas -->
+            <a href="https://geekyfix.tech" class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-3xl border-2 border-gray-100 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in-up [animation-delay:800ms]">
+                <div class="w-full h-36 sm:h-48 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" alt="Empresas y PyMEs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
+                </div>
+                <div class="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Soy PyME / Empresa</h2>
+                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Soluciones IT corporativas, mantenimiento preventivo y soporte técnico empresarial.</p>
+                    <div class="mt-4 sm:mt-6 inline-flex items-center text-brand-600 dark:text-brand-400 font-semibold text-sm sm:text-base group-hover:translate-x-2 transition-transform">
+                        Ir a geekyfix.tech
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
+            </a>
+
         </div>
-    </nav>
+    </div>   
 
-    <!-- Hero Section -->
-    <section class="relative pt-8 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-white dark:bg-gray-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <!-- Left Column: Text Content -->
-                <div class="max-w-2xl order-2 lg:order-1 text-center lg:text-left">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight opacity-0 animate-fade-in-up [animation-delay:200ms]">
-                        Recuperá la velocidad de <br class="hidden lg:block" />
-                        <span class="text-brand-600 dark:text-brand-500">tu PC hoy mismo.</span>
-                    </h1>
-                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed opacity-0 animate-fade-in-up [animation-delay:300ms]">
-                        Soporte técnico a domicilio en <strong>Zona Norte (Argüello, Villa Belgrano, Cerro)</strong> y asistencia remota para todo el país. Soluciones rápidas y transparentes.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 mb-4 lg:mb-12 justify-center lg:justify-start opacity-0 animate-fade-in-up [animation-delay:400ms]">
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20equipo." target="_blank" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-white bg-[#25D366] hover:bg-[#128C7E] shadow-xl shadow-[#25D366]/30 transition-all hover:-translate-y-1 animate-pulse">
-                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            Contactar por WhatsApp
-                        </a>
-                        <a href="#servicios" class="inline-flex justify-center items-center px-6 py-4 border border-gray-300 dark:border-gray-700 text-base font-medium rounded-2xl text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all shadow-sm">
-                            Ver Servicios
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                        </a>
-                    </div>
-                </div>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20equipo." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 z-50 opacity-0 animate-fade-in [animation-delay:1000ms]" aria-label="Contactar por WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
-                <!-- Right Column: Image Composition -->
-                <div class="relative h-64 sm:h-80 lg:h-[500px] flex items-center justify-center mt-6 lg:mt-0 order-1 lg:order-2 mb-8 lg:mb-0 opacity-0 animate-fade-in [animation-delay:600ms]">
-                    <div class="relative w-full max-w-md aspect-square lg:aspect-auto lg:h-full">
-                        <!-- Main Image -->
-                        <div class="absolute top-0 left-0 w-2/3 h-2/3 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-900 z-20">
-                            <img src="https://images.unsplash.com/photo-1602763288580-927cfda37a72?auto=format&fit=crop&q=80&w=600" alt="PC Lenta" class="w-full h-full object-cover" referrerPolicy="no-referrer">
-                        </div>
-                        <!-- Second Image -->
-                        <div class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-900 z-30">
-                            <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&q=80&w=600" alt="Router Wi-Fi" class="w-full h-full object-cover" referrerPolicy="no-referrer">
-                        </div>
-                        <!-- Third Image -->
-                        <div class="absolute top-1/4 right-0 w-1/3 h-1/3 rounded-3xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-900 z-10 translate-x-4 -translate-y-4">
-                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600" alt="Celular" class="w-full h-full object-cover" referrerPolicy="no-referrer">
-                        </div>
-                        
-                        <!-- Decorative elements -->
-                        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-brand-100 dark:bg-brand-900/30 rounded-full blur-2xl -z-10"></div>
-                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-blue-100 dark:bg-blue-900/30 rounded-full blur-2xl -z-10"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="py-24 bg-[#faf9f6] dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">Problemas comunes que resuelvo todos los días</h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">La tecnología debería facilitarte la vida, no complicártela. Si te pasa algo de esto, dejalo en mis manos.</p>
-            </div>
-            
-            <div class="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-4 sm:gap-8 pb-8 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid-cols-2 lg:grid-cols-3 hide-scrollbar">
-                <!-- Service 1 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20La%20compu%20anda%20muy%20lenta%20y%20necesito%20ayuda." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1602763288580-927cfda37a72?auto=format&fit=crop&q=80&w=600" alt="Computadora cargando" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"La compu anda muy lenta"</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Si tarda una eternidad en prender o se traba, la limpio y la dejo rápida como el primer día.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 2 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20el%20Wi-Fi." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&q=80&w=600" alt="Router Wi-Fi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"El Wi-Fi no llega bien"</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Configuro tu red para que tengas buena señal de internet en toda la casa, sin cortes molestos.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 3 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20a%20distancia." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&q=80&w=600" alt="Persona usando notebook" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Ayuda a distancia</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Me conecto a tu compu a distancia y te soluciono el problema en el momento, sin que te muevas de tu casa.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 4 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Quiero%20renovar%20mi%20compu%20vieja." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=600" alt="Componentes de PC" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Renovar la compu vieja</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Le damos una segunda vida a tu equipo cambiándole algunas piezas para que no tengas que comprar uno nuevo.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 5 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Tengo%20problemas%20con%20la%20impresora." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=600" alt="Impresora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"La impresora no anda"</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Configuro impresoras, escáneres y otros aparatos que a veces se ponen rebeldes y no quieren funcionar.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 6 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20que%20me%20ense%C3%B1es%20a%20usar%20algo." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&q=80&w=600" alt="Personas aprendiendo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Te enseño a usar tus equipos</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Te puedo ayudar y enseñarte a usar programas, hacer trámites online o configurar tu celular nuevo.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 7 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20celular." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600" alt="Celular en mano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Ayuda con tu celular</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">¿Anda muy lento, te avisa que está lleno de fotos o te saltan publicidades molestas de la nada? Lo reviso y lo dejo funcionando perfecto.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 8 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20saber%20sobre%20control%20parental." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600" alt="Niño usando tablet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Control Parental</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Configuro los dispositivos de los más chicos para que naveguen seguros, bloqueando contenido inapropiado y limitando el tiempo de uso.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Service 9 -->
-                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20para%20guardar%20mis%20fotos%20y%20archivos." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&q=80&w=600" alt="Fotos y recuerdos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Respaldo de fotos y recuerdos</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">¿Miedo a perder las fotos de la familia? Te armo un sistema automático para guardar todos tus recuerdos de forma segura en la nube o en un disco.</p>
-                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar por WhatsApp
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Methodology Section -->
-    <section class="py-20 bg-gray-50 dark:bg-gray-950 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 step-item opacity-0 translate-y-8 transition-all duration-700 ease-out">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">¿Cómo trabajo?</h2>
-                <p class="mt-4 text-gray-600 dark:text-gray-400">Un proceso simple y transparente para tu tranquilidad.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <!-- Connecting line for desktop -->
-                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gray-200 dark:bg-gray-800 z-0 origin-left scale-x-0 transition-transform duration-1000 delay-300 ease-out line-item"></div>
-
-                <div class="relative z-10 flex flex-col items-center text-center step-item opacity-0 translate-y-8 transition-all duration-700 delay-100 ease-out">
-                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm relative group transition-transform hover:-translate-y-1">
-                        <div class="absolute inset-0 rounded-full bg-brand-50 dark:bg-brand-900/30 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
-                        1
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Contacto</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm px-4">Me escribís por WhatsApp contándome qué le pasa a tu equipo.</p>
-                </div>
-
-                <div class="relative z-10 flex flex-col items-center text-center step-item opacity-0 translate-y-8 transition-all duration-700 delay-300 ease-out">
-                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm relative group transition-transform hover:-translate-y-1">
-                        <div class="absolute inset-0 rounded-full bg-brand-50 dark:bg-brand-900/30 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
-                        2
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Diagnóstico</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm px-4">Evaluamos la mejor solución, ya sea mediante soporte remoto o visita a domicilio.</p>
-                </div>
-
-                <div class="relative z-10 flex flex-col items-center text-center step-item opacity-0 translate-y-8 transition-all duration-700 delay-500 ease-out">
-                    <div class="w-24 h-24 rounded-full bg-white dark:bg-gray-900 border-4 border-brand-100 dark:border-brand-900/50 flex items-center justify-center text-2xl font-bold text-brand-600 dark:text-brand-400 mb-6 shadow-sm relative group transition-transform hover:-translate-y-1">
-                        <div class="absolute inset-0 rounded-full bg-brand-50 dark:bg-brand-900/30 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
-                        3
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Solución</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm px-4">Tu equipo queda reparado, optimizado y listo para seguir funcionando.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-brand-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Lo que dicen mis clientes</h2>
-                <p class="mt-4 text-gray-600 dark:text-gray-400">Soluciones reales para problemas reales.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 relative">
-                    <div class="text-brand-500 mb-4">
-                        <svg class="w-8 h-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 italic mb-6">"Nacho me salvó la compu del trabajo. Estaba lentísima y en un par de horas me la dejó volando. Súper recomendable y muy claro para explicar."</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-brand-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-brand-600 dark:text-brand-400 font-bold">M</div>
-                        <div class="ml-3">
-                            <p class="font-bold text-gray-900 dark:text-white text-sm">María L.</p>
-                            <p class="text-xs text-gray-500">Villa Belgrano</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 relative">
-                    <div class="text-brand-500 mb-4">
-                        <svg class="w-8 h-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 italic mb-6">"Tenía problemas con el Wi-Fi que no llegaba a la pieza. Vino, configuró todo y ahora tengo señal a full en toda la casa. Un genio."</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-brand-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-brand-600 dark:text-brand-400 font-bold">C</div>
-                        <div class="ml-3">
-                            <p class="font-bold text-gray-900 dark:text-white text-sm">Carlos R.</p>
-                            <p class="text-xs text-gray-500">Argüello</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ & Reviews Split Section -->
-    <section class="py-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
-                <!-- FAQ -->
-                <div>
-                    <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Preguntas Frecuentes</h2>
-                    <div class="space-y-4">
-                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
-                            <input type="checkbox" id="faq1" class="peer sr-only">
-                            <label for="faq1" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
-                                ¿Hacen reparaciones a domicilio?
-                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </label>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
-                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Claro, cubro zona norte de Córdoba (Arguello, Villa Belgrano y alrededores) para soporte presencial. Para otras zonas, consultame.</p>
-                            </div>
-                        </div>
-                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
-                            <input type="checkbox" id="faq2" class="peer sr-only">
-                            <label for="faq2" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
-                                ¿Dás soporte remoto?
-                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </label>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
-                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Sí, utilizo RustDesk para solucionar problemas a distancia de forma segura y rápida sin que tengas que moverte de tu casa.</p>
-                            </div>
-                        </div>
-                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
-                            <input type="checkbox" id="faq3" class="peer sr-only">
-                            <label for="faq3" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
-                                ¿Cuánto demora una reparación?
-                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </label>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
-                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Depende del problema. Optimizaciones, formateos y soporte remoto suelen resolverse en el día. Si requiere repuestos, te informo los tiempos exactos.</p>
-                            </div>
-                        </div>
-                        <div class="relative bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
-                            <input type="checkbox" id="faq4" class="peer sr-only">
-                            <label for="faq4" class="flex justify-between items-center p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:text-brand-600 transition-colors">
-                                ¿Qué métodos de pago aceptan?
-                                <svg class="w-5 h-5 transition-transform peer-checked:rotate-180 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </label>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40 px-5">
-                                <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm">Acepto Efectivo, Transferencias bancarias, MercadoPago y Criptomonedas (USDT/USDC).</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reviews -->
-                <div>
-                    <div class="bg-gray-50 dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-100 dark:border-gray-700">
-                        <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Dejanos tu reseña</h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Tu opinión me ayuda a seguir mejorando el servicio.</p>
-                        
-                        <form id="review-form" class="space-y-4">
-                            <div class="star-rating flex flex-row-reverse justify-end mb-2">
-                                <input type="radio" id="star5" name="rating" value="5" required><label for="star5"></label>
-                                <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
-                                <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
-                                <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
-                                <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
-                            </div>
-                            <input type="text" name="name" placeholder="Tu nombre" required class="w-full text-sm rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 focus:ring-brand-500 focus:border-brand-500 p-3">
-                            <textarea name="review" rows="3" placeholder="Contame tu experiencia..." required class="w-full text-sm rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 focus:ring-brand-500 focus:border-brand-500 p-3"></textarea>
-                            <button type="submit" id="submit-review-btn" class="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors flex justify-center items-center">
-                                <span>Enviar Reseña</span>
-                                <svg id="review-spinner" class="hidden animate-spin ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                            </button>
-                            <div id="review-success" class="hidden text-sm text-green-600 dark:text-green-400 text-center font-medium mt-2">¡Gracias por tu reseña!</div>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-auto">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-8 h-8 rounded-lg grayscale opacity-80">
-                <span class="font-bold text-lg tracking-tight">GeekyFix</span>
-            </div>
-            <div class="flex gap-6 text-sm text-gray-400">
-                <a href="mailto:nachoabril@gmail.com" class="hover:text-white transition-colors">nachoabril@gmail.com</a>
-                <a href="https://wa.me/5493512179222" target="_blank" class="hover:text-white transition-colors">+54 9 351 217-9222</a>
-            </div>
-            <div class="text-sm text-gray-500">
-                &copy; 2026 GeekyFix. Córdoba, Argentina.
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript Logic -->
     <script>
-        // 1. Dark Mode
+        // Dark Mode Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -499,77 +128,6 @@
                 localStorage.setItem('color-theme', 'dark');
             }
         });
-
-        // 2. Reviews (Same as index.html)
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbytILCi7sIruJZnHmk2w49-ZtWcL9HLBYsoBRR4h2jaJdR_nIGwqj5MgFkhNcfrRsSB/exec';
-        const reviewForm = document.getElementById('review-form');
-        const submitBtn = document.getElementById('submit-review-btn');
-        const spinner = document.getElementById('review-spinner');
-        const successMsg = document.getElementById('review-success');
-
-        reviewForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            successMsg.classList.add('hidden');
-            submitBtn.disabled = true;
-            spinner.classList.remove('hidden');
-
-            const formData = new FormData(reviewForm);
-            const searchParams = new URLSearchParams(formData);
-
-            try {
-                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI') {
-                    await fetch(GOOGLE_SCRIPT_URL, { 
-                        method: 'POST', 
-                        mode: 'no-cors', 
-                        body: searchParams 
-                    });
-                } else {
-                    await new Promise(r => setTimeout(r, 1000));
-                }
-                successMsg.classList.remove('hidden');
-                reviewForm.reset();
-            } catch (error) {
-                console.error(error);
-            } finally {
-                submitBtn.disabled = false;
-                spinner.classList.add('hidden');
-            }
-        });
-
-        // 3. Scroll Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.2
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('step-item')) {
-                        entry.target.classList.remove('opacity-0', 'translate-y-8');
-                        entry.target.classList.add('opacity-100', 'translate-y-0');
-                    }
-                    if (entry.target.classList.contains('line-item')) {
-                        entry.target.classList.remove('scale-x-0');
-                        entry.target.classList.add('scale-x-100');
-                    }
-                    observer.unobserve(entry.target); // Solo animar una vez
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.step-item, .line-item').forEach(el => {
-            observer.observe(el);
-        });
     </script>
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20equipo." 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 flex items-center justify-center opacity-0 animate-fade-in [animation-delay:1000ms]"
-       aria-label="Contactar por WhatsApp">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
 </body>
 </html>
