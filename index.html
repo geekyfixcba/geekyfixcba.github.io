@@ -1,133 +1,371 @@
 <!DOCTYPE html>
+
 <html lang="es" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeekyFix | Soluciones Informáticas</title>
-    <meta name="description" content="Soporte técnico integral para empresas y particulares.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            900: '#0c4a6e',
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'fade-in': 'fadeIn 1s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GeekyFix | Soluciones Informáticas</title>
+
+    <meta name="description" content="Soporte técnico integral para empresas y particulares.">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        brand: {
+
+                            50: '#f0f9ff',
+
+                            100: '#e0f2fe',
+
+                            500: '#0ea5e9',
+
+                            600: '#0284c7',
+
+                            900: '#0c4a6e',
+
+                        }
+
+                    },
+
+                    animation: {
+
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+
+                    },
+
+                    keyframes: {
+
+                        fadeInUp: {
+
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+
+                        },
+
+                        fadeIn: {
+
+                            '0%': { opacity: '0' },
+
+                            '100%': { opacity: '1' },
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body { font-family: 'Inter', sans-serif; }
+
+    </style>
+
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 transition-colors duration-300">
-    
-    <!-- Theme Toggle (Absolute top right) -->
-    <button id="theme-toggle" class="absolute top-6 right-6 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors opacity-0 animate-fade-in [animation-delay:1000ms]">
-        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
-        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-    </button>
 
-    <div class="max-w-4xl w-full space-y-12">
-        <!-- Header -->
-        <div class="text-center space-y-4 sm:space-y-6">
-            <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-40 h-40 sm:w-44 sm:h-44 mx-auto rounded-3xl shadow-lg opacity-0 animate-fade-in-up">
-            <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight opacity-0 animate-fade-in-up [animation-delay:200ms]">Bienvenido a GeekyFix</h1>
-            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 opacity-0 animate-fade-in-up [animation-delay:400ms]">Seleccioná tu perfil para continuar</p>
-        </div>
+    
 
-        <!-- Splitter Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+    <!-- Theme Toggle (Absolute top right) -->
 
-            <!-- Particulares -->
-            <a href="servicios.html" class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-3xl border-2 border-gray-100 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in-up [animation-delay:600ms]">
-                <div class="w-full h-36 sm:h-48 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600" alt="Hogar y Particulares" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
-                </div>
-                <div class="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Soy Particular</h2>
-                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Soporte técnico a domicilio, reparación de PC, mejora de Wi-Fi y asistencia remota.</p>
-                    <div class="mt-4 sm:mt-6 inline-flex items-center text-brand-600 dark:text-brand-400 font-semibold text-sm sm:text-base group-hover:translate-x-2 transition-transform">
-                        Ver servicios para el hogar
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </div>
-                </div>
-            </a>
+    <button id="theme-toggle" class="absolute top-6 right-6 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors opacity-0 animate-fade-in [animation-delay:1000ms]">
 
-            <!-- Empresas -->
-            <a href="https://geekyfix.tech" class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-3xl border-2 border-gray-100 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in-up [animation-delay:800ms]">
-                <div class="w-full h-36 sm:h-48 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" alt="Empresas y PyMEs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
-                </div>
-                <div class="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Soy PyME / Empresa</h2>
-                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Soluciones IT corporativas, mantenimiento preventivo y soporte técnico empresarial.</p>
-                    <div class="mt-4 sm:mt-6 inline-flex items-center text-brand-600 dark:text-brand-400 font-semibold text-sm sm:text-base group-hover:translate-x-2 transition-transform">
-                        Ir a geekyfix.tech
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </div>
-                </div>
-            </a>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
 
-        </div>
-    </div>   
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20equipo." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 z-50 opacity-0 animate-fade-in [animation-delay:1000ms]" aria-label="Contactar por WhatsApp">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+    </button>
 
-    <script>
-        // Dark Mode Logic
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            lightIcon.classList.remove('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            darkIcon.classList.remove('hidden');
-        }
+    <div class="max-w-4xl w-full space-y-12">
 
-        themeToggleBtn.addEventListener('click', function() {
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
-    </script>
+        <!-- Header -->
+
+        <div class="text-center space-y-4 sm:space-y-6">
+
+            <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-40 h-40 sm:w-44 sm:h-44 mx-auto rounded-3xl shadow-lg opacity-0 animate-fade-in-up">
+
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight opacity-0 animate-fade-in-up [animation-delay:200ms]">Bienvenido a GeekyFix</h1>
+
+            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 opacity-0 animate-fade-in-up [animation-delay:400ms]">Seleccioná tu perfil para continuar</p>
+
+        </div>
+
+
+        <!-- Splitter Cards -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+
+
+            <!-- Particulares -->
+
+            <a href="servicios.html" class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-3xl border-2 border-gray-100 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in-up [animation-delay:600ms]">
+
+                <div class="w-full h-36 sm:h-48 overflow-hidden relative">
+
+                    <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600" alt="Hogar y Particulares" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
+
+                </div>
+
+                <div class="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Soy Particular</h2>
+
+                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Soporte técnico a domicilio, reparación de PC, mejora de Wi-Fi y asistencia remota.</p>
+
+                    <div class="mt-4 sm:mt-6 inline-flex items-center text-brand-600 dark:text-brand-400 font-semibold text-sm sm:text-base group-hover:translate-x-2 transition-transform">
+
+                        Ver servicios para el hogar
+
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Empresas -->
+
+            <a href="https://geekyfix.tech" class="group relative flex flex-col bg-white dark:bg-gray-900 rounded-3xl border-2 border-gray-100 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 overflow-hidden opacity-0 animate-fade-in-up [animation-delay:800ms]">
+
+                <div class="w-full h-36 sm:h-48 overflow-hidden relative">
+
+                    <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" alt="Empresas y PyMEs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer">
+
+                </div>
+
+                <div class="p-6 sm:p-8 flex flex-col items-center text-center flex-grow">
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Soy PyME / Empresa</h2>
+
+                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Soluciones IT corporativas, mantenimiento preventivo y soporte técnico empresarial.</p>
+
+                    <div class="mt-4 sm:mt-6 inline-flex items-center text-brand-600 dark:text-brand-400 font-semibold text-sm sm:text-base group-hover:translate-x-2 transition-transform">
+
+                        Ir a geekyfix.tech
+
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>   
+
+
+    <!-- Footer -->
+
+    <footer class="w-full max-w-4xl mx-auto mt-12 py-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4 opacity-0 animate-fade-in [animation-delay:1000ms]">
+
+        <div class="flex items-center gap-3">
+
+            <img src="https://geekyfixcba.github.io/logo.png" alt="GeekyFix Logo" class="w-6 h-6 rounded-md grayscale opacity-80">
+
+            <span class="font-semibold text-sm text-gray-600 dark:text-gray-400">GeekyFix</span>
+
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 items-center">
+
+            <a href="https://wa.me/5493512179222" target="_blank" class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors">+54 9 351 217-9222</a>
+
+            <span class="hidden sm:inline text-gray-300 dark:text-gray-700">|</span>
+
+            <a href="#" id="save-contact-btn" class="inline-flex items-center hover:text-brand-500 dark:hover:text-brand-400 transition-colors group" title="Agendar en contactos">
+
+                <svg class="w-3.5 h-3.5 mr-1.5 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+
+                Agendar contacto
+
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Floating WhatsApp Button -->
+
+    <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20ayuda%20con%20mi%20equipo." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 z-50 opacity-0 animate-fade-in [animation-delay:1000ms]" aria-label="Contactar por WhatsApp">
+
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+    </a>
+
+
+    <script>
+
+        // Dark Mode Logic
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+
+            document.documentElement.classList.add('dark');
+
+            lightIcon.classList.remove('hidden');
+
+        } else {
+
+            document.documentElement.classList.remove('dark');
+
+            darkIcon.classList.remove('hidden');
+
+        }
+
+
+        themeToggleBtn.addEventListener('click', function() {
+
+            darkIcon.classList.toggle('hidden');
+
+            lightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+
+                document.documentElement.classList.remove('dark');
+
+                localStorage.setItem('color-theme', 'light');
+
+            } else {
+
+                document.documentElement.classList.add('dark');
+
+                localStorage.setItem('color-theme', 'dark');
+
+            }
+
+        });
+
+
+        // vCard Generation
+
+        document.getElementById('save-contact-btn').addEventListener('click', async (e) => {
+
+            e.preventDefault();
+
+            // Function to convert image URL to base64
+
+            const getBase64Image = async (url) => {
+
+                try {
+
+                    const response = await fetch(url);
+
+                    const blob = await response.blob();
+
+                    return new Promise((resolve, reject) => {
+
+                        const reader = new FileReader();
+
+                        reader.onloadend = () => {
+
+                            // Extract just the base64 data part, removing the data:image/png;base64, prefix
+
+                            const base64data = reader.result.split(',')[1];
+
+                            resolve(base64data);
+
+                        };
+
+                        reader.onerror = reject;
+
+                        reader.readAsDataURL(blob);
+
+                    });
+
+                } catch (error) {
+
+                    console.error('Error loading image for vCard:', error);
+
+                    return null;
+
+                }
+
+            };
+
+
+            const base64Photo = await getBase64Image('https://geekyfixcba.github.io/logo.png');
+
+            const photoString = base64Photo ? `\nPHOTO;ENCODING=b;TYPE=PNG:${base64Photo}` : '';
+
+
+            const vcardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ignacio Abril - GeekyFix\nORG:GeekyFix\nTITLE:IT Support Specialist\nTEL;TYPE=CELL,VOICE,WORK:+5493512179222\nEMAIL;TYPE=WORK:nachoabril@gmail.com\nURL:https://geekyfixcba.github.io\nURL:https://geekyfix.tech\nADR;TYPE=WORK:;;;Cordoba;;;\nNOTE:Soporte técnico para el Hogar y Pymes.${photoString}\nEND:VCARD`;
+
+            downloadVCard(vcardData);
+
+        });
+
+
+        function downloadVCard(data) {
+
+            const blob = new Blob([data], { type: 'text/vcard;charset=utf-8' });
+
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+
+            a.href = url;
+
+            a.download = 'GeekyFix.vcf';
+
+            document.body.appendChild(a);
+
+            a.click();
+
+            document.body.removeChild(a);
+
+            URL.revokeObjectURL(url);
+
+        }
+
+    </script>
+
 </body>
+
 </html>
+
+
