@@ -41,7 +41,7 @@
         .step-item, .service-card, .testimonial-card {
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.6s ease-out;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .step-item.show, .service-card.show, .testimonial-card.show {
             opacity: 1;
@@ -129,98 +129,162 @@
             </div>
             
             <div class="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-4 sm:gap-8 pb-8 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid-cols-2 lg:grid-cols-3 hide-scrollbar">
-                <!-- Service 1: E-commerce -->
+                <!-- Service 1: Tarjetas NFC / QR -->
                 <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="../assets/images/image-13.jpg" alt="E-commerce" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                        <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=800" alt="Tarjetas NFC QR" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
                     <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">E-commerce</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Llevá tus ventas al siguiente nivel con tiendas online integradas con pagos y envíos.</p>
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20armar%20un%20E-commerce%20para%20mi%20negocio." target="_blank" class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar ahora
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Tarjetas Inteligentes</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Tarjetas personales con tecnología NFC y QR. Compartí tu contacto sin contacto físico.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('tarjetas')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20crear%20tarjetas%20personales%20con%20NFC%20y%20QR." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Perfiles Digitales -->
+                <!-- Service 2: Hosting & Dominio -->
                 <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="../assets/images/image-15.jpg" alt="Perfiles Digitales" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800" alt="Hosting y Dominios" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <div class="px-2 pb-2 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Hosting y Dominios</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Registro de dominios .com y hosting de alta velocidad para que tu web vuele.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('hosting')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20hosting%20y%20el%20alta%20de%20un%20dominio%20.com." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Perfiles Digitales -->
+                <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" alt="Perfiles Digitales" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
                     <div class="px-2 pb-2 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Perfiles Digitales</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Optimizamos tu presencia en Google y redes para que tus clientes te encuentren primero.</p>
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20mejorar%20los%20perfiles%20digitales%20de%20mi%20startup." target="_blank" class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar ahora
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Optimizamos tu presencia en Google Business y redes para atraer más clientes.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('perfiles')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20mejorar%20los%20perfiles%20digitales%20de%20mi%20startup." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 3: Desarrollo Web -->
+                <!-- Service 4: Desarrollo Web -->
                 <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="../assets/images/image-16.jpg" alt="Desarrollo Web" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800" alt="Desarrollo Web" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
                     <div class="px-2 pb-2 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Desarrollo Web</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Sitios profesionales, rápidos y adaptados a dispositivos móviles para tu marca.</p>
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20el%20desarrollo%20de%20un%20sitio%20web%20para%20mi%20startup." target="_blank" class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar ahora
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Webs modernas, rápidas y escalables. Desde landing pages hasta SaaS complejos.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('web')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20el%20desarrollo%20de%20un%20sitio%20web." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 4: Mantenimiento -->
+                <!-- Service 5: E-commerce -->
                 <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="../assets/images/image-17.jpg" alt="Mantenimiento" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800" alt="E-commerce" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
                     <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mantenimiento Preventivo</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Evitá paradas inesperadas con revisiones periódicas de tus equipos y servidores.</p>
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20mantenimiento%20preventivo%20para%20mis%20equipos." target="_blank" class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar ahora
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 5: Soporte Corporativo -->
-                <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
-                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="../assets/images/image-12.jpg" alt="Soporte Startup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="px-2 pb-2 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Soporte Startup</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Asistencia técnica prioritaria para que tu proyecto nunca se detenga.</p>
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20soporte%20IT%20para%20mi%20startup." target="_blank" class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar ahora
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">E-commerce</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Vendé online sin límites. Integración total con pagos, envíos y stock.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('ecommerce')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20armar%20un%20E-commerce." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Service 6: Redes -->
                 <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
                     <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
-                        <img src="../assets/images/image-14.jpg" alt="Redes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800" alt="Redes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
                     </div>
                     <div class="px-2 pb-2 flex-grow flex flex-col">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Redes y Conectividad</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Instalación y configuración de redes Wi-Fi y cableadas de alto rendimiento.</p>
-                        <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20mejorar%20la%20red%20de%20mi%20oficina." target="_blank" class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
-                            Consultar ahora
-                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Instalación y optimización de redes empresariales. Wi-Fi que no falla.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('redes')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20mejorar%20la%20red%20de%20mi%20oficina." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 7: Mantenimiento -->
+                <div class="service-card group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=800" alt="Mantenimiento" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <div class="px-2 pb-2 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mantenimiento Equipos</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Cuidado preventivo y correctivo para que tus herramientas de trabajo duren más.</p>
+                        <div class="mt-auto pt-4 flex items-center justify-between">
+                            <button onclick="openServiceModal('mantenimiento')" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline">
+                                Más detalles
+                            </button>
+                            <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20mantenimiento%20para%20mis%20equipos." target="_blank" class="inline-flex items-center text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                                <svg class="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal Section -->
+    <div id="service-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white dark:bg-gray-900 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300">
+            <div class="relative h-48 sm:h-64 overflow-hidden">
+                <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+                <button id="close-modal" class="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 backdrop-blur-md transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="p-8">
+                <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4"></h3>
+                <div id="modal-description" class="text-gray-600 dark:text-gray-400 space-y-4 text-sm sm:text-base leading-relaxed"></div>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                    <a id="modal-whatsapp" href="" target="_blank" class="flex-grow flex justify-center items-center px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold rounded-xl shadow-lg transition-all">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Methodology Section -->
     <section class="py-20 bg-gray-50 dark:bg-gray-950 overflow-hidden">
@@ -411,16 +475,152 @@
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
+            const intersectingEntries = entries.filter(e => e.isIntersecting);
+            
+            // Group entries by parent to stagger siblings appearing at once
+            const groups = new Map();
+            intersectingEntries.forEach(entry => {
+                const parent = entry.target.parentElement;
+                if (!groups.has(parent)) groups.set(parent, []);
+                groups.get(parent).push(entry.target);
+            });
+
+            groups.forEach((elements) => {
+                elements.sort((a, b) => {
+                    const rectA = a.getBoundingClientRect();
+                    const rectB = b.getBoundingClientRect();
+                    return (rectA.top + rectA.left) - (rectB.top + rectB.left);
+                });
+
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('show');
+                    }, index * 100);
+                    observer.unobserve(el);
+                });
             });
         }, observerOptions);
 
         document.querySelectorAll('.step-item, .service-card, .testimonial-card').forEach(el => {
             observer.observe(el);
+        });
+
+        // 4. Modal Logic
+        const serviceModal = document.getElementById('service-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalWhatsapp = document.getElementById('modal-whatsapp');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        const serviceDetails = {
+            tarjetas: {
+                title: "Tarjetas Inteligentes NFC & QR",
+                image: "https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=800",
+                description: [
+                    "Revolucioná tu manera de hacer networking. Nuestras tarjetas inteligentes utilizan tecnología NFC y QR para compartir tu perfil profesional en segundos.",
+                    "<strong>¿Cómo funciona?</strong> Solo acercá tu tarjeta al teléfono de tu cliente (NFC) o dejá que escaneen el código QR. Tu contacto se guardará directamente en su agenda sin necesidad de apps.",
+                    "<strong>Actualización en tiempo real:</strong> Cambiá tu teléfono o mail desde un panel central y tu tarjeta física se actualizará automáticamente.",
+                    "Ideal para emprendedores y equipos de ventas que buscan dejar una impresión tecnológica duradera."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20crear%20tarjetas%20personales%20con%20NFC%20y%20QR."
+            },
+            hosting: {
+                title: "Hosting y Registro de Dominios",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800",
+                description: [
+                    "Tu sitio web merece el mejor hogar. Ofrecemos hosting de alta disponibilidad optimizado para negocios argentinos y startups globales.",
+                    "<strong>Velocidad Extrema:</strong> Utilizamos almacenamiento NVMe y tecnología de cache avanzada para que tu sitio cargue en milisegundos.",
+                    "<strong>Seguridad Garantizada:</strong> Certificados SSL gratuitos incluidos en todos los planes y backups diarios automáticos.",
+                    "<strong>Soporte en Español:</strong> Olvidate de tickets en inglés que tardan días. Estamos a un WhatsApp de distancia para resolver cualquier duda."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20hosting%20y%20el%20alta%20de%20un%20dominio%20.com."
+            },
+            perfiles: {
+                title: "Optimización de Perfiles Digitales",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800",
+                description: [
+                    "Si no te encuentran en Google, no existís. Maximizamos el alcance de tu negocio local y digital.",
+                    "<strong>Google Business Profile:</strong> Configuramos y optimizamos tu ficha para que aparezcas primero en Google Maps y búsquedas locales.",
+                    "<strong>SEO Local:</strong> Estrategias para captar clientes en tu zona geográfica específica.",
+                    "<strong>Presencia en Redes:</strong> Auditoría y optimización de perfiles en Instagram y LinkedIn para coherencia de marca y profesionalismo."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20mejorar%20los%20perfiles%20digitales%20de%20mi%20startup."
+            },
+            web: {
+                title: "Desarrollo Web Profesional",
+                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800",
+                description: [
+                    "Creamos herramientas digitales que venden. No solo hacemos webs bonitas, hacemos webs que funcionan.",
+                    "<strong>Landing Pages:</strong> Diseñadas específicamente para campañas de marketing y alta conversión de leads.",
+                    "<strong>SaaS & Apps:</strong> Desarrollamos plataformas personalizadas adaptadas a la lógica de tu negocio.",
+                    "<strong>Mobile First:</strong> Diseño pensado primero para celulares, donde está el 80% de tu tráfico actual."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20el%20desarrollo%20de%20un%20sitio%20web."
+            },
+            ecommerce: {
+                title: "Soluciones E-commerce",
+                image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800",
+                description: [
+                    "Automatizá tus ventas 24/7. Tu tienda online integrada con las mejores herramientas del mercado.",
+                    "<strong>Pagos Integrados:</strong> Aceptá todas las tarjetas con Mercado Pago y otras pasarelas locales e internacionales.",
+                    "<strong>Envíos Automáticos:</strong> Integración con Andreani, Correo Argentino y transportes de última milla.",
+                    "<strong>Gestión de Inventario:</strong> Control de stock simplificado y panel de administración intuitivo."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20armar%20un%20E-commerce."
+            },
+            redes: {
+                title: "Redes y Conectividad",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800",
+                description: [
+                    "La base de cualquier startup es una conexión estable. Diseñamos redes robustas para oficinas y espacios de trabajo.",
+                    "<strong>Wi-Fi de Alta Densidad:</strong> Equipos profesionales (Ubiquiti/MikroTik) para que muchos dispositivos naveguen sin cortes simultáneamente.",
+                    "<strong>Seguridad de Red:</strong> Configuración de Firewalls y VPNs para que la información de tu empresa esté segura.",
+                    "<strong>Balanceo de Carga:</strong> Integración de múltiples proveedores de internet para que si uno falla, el otro tome el control instantáneamente."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20mejorar%20la%20red%20de%20mi%20oficina."
+            },
+            mantenimiento: {
+                title: "Mantenimiento de Equipos",
+                image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=800",
+                description: [
+                    "Tus computadoras son tus herramientas de producción. No esperes a que fallen para actuar.",
+                    "<strong>Limpieza y Optimización:</strong> Mantenimiento físico y de software para extender la vida útil de laptops and workstations.",
+                    "<strong>Protección Proactiva:</strong> Instalación de antivirus corporativos y sistemas de backup para prevenir pérdida de datos.",
+                    "<strong>Auditoría de Hardware:</strong> Evaluamos qué equipos necesitan upgrades (RAM, SSD) para que tu equipo trabaje más rápido."
+                ],
+                whatsapp: "https://wa.me/5493512179222?text=Hola%20Nacho!%20Necesito%20mantenimiento%20para%20mis%20equipos."
+            }
+        };
+
+        window.openServiceModal = function(serviceKey) {
+            const data = serviceDetails[serviceKey];
+            if (!data) return;
+
+            modalImage.src = data.image;
+            modalTitle.textContent = data.title;
+            modalDescription.innerHTML = data.description.map(p => `<p>${p}</p>`).join('');
+            modalWhatsapp.href = data.whatsapp;
+
+            serviceModal.classList.remove('opacity-0', 'pointer-events-none');
+            serviceModal.querySelector('div').classList.remove('scale-95');
+            serviceModal.querySelector('div').classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            serviceModal.classList.add('opacity-0', 'pointer-events-none');
+            serviceModal.querySelector('div').classList.add('scale-95');
+            serviceModal.querySelector('div').classList.remove('scale-100');
+            document.body.style.overflow = '';
+        };
+
+        closeModalBtn.addEventListener('click', closeModal);
+        serviceModal.addEventListener('click', (e) => {
+            if (e.target === serviceModal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
         });
     </script>
 </body>

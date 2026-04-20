@@ -36,6 +36,20 @@
                             600: '#0284c7',
                             900: '#0c4a6e',
                         }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -44,6 +58,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        @keyframes reveal {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { opacity: 0; animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
         .star-rating input { display: none; }
         .star-rating label { float: right; cursor: pointer; color: #d1d5db; transition: color 0.2s; }
         .star-rating label:before { content: '★'; font-size: 2rem; }
@@ -275,6 +304,21 @@
                         </div>
                     </div>
                 </a>
+
+                <!-- Service 10: Tarjetas NFC / QR -->
+                <a href="https://wa.me/5493512179222?text=Hola%20Nacho!%20Me%20interesa%20crear%20tarjetas%20personales%20con%20NFC%20y%20QR." target="_blank" class="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-md transition-all hover:-translate-y-1 text-left w-[85vw] sm:w-auto shrink-0 snap-center sm:snap-align-none">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-xl mb-5">
+                        <img src="./assets/images/image-18.jpg" alt="Tarjetas NFC QR" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer">
+                    </div>
+                    <div class="px-2 pb-2 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Tarjetas personales NFC / QR</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Tarjetas inteligentes para que tus clientes agendan tu contacto o redes al instante con tecnología NFC y QR.</p>
+                        <div class="mt-auto inline-flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors">
+                            Consultar por WhatsApp
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -489,22 +533,40 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.2
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('step-item')) {
-                        entry.target.classList.remove('opacity-0', 'translate-y-8');
-                        entry.target.classList.add('opacity-100', 'translate-y-0');
-                    }
-                    if (entry.target.classList.contains('line-item')) {
-                        entry.target.classList.remove('scale-x-0');
-                        entry.target.classList.add('scale-x-100');
-                    }
-                    observer.unobserve(entry.target); // Solo animar una vez
-                }
+            const intersectingEntries = entries.filter(e => e.isIntersecting);
+            
+            // Group entries by parent to stagger siblings appearing at once
+            const groups = new Map();
+            intersectingEntries.forEach(entry => {
+                const parent = entry.target.parentElement;
+                if (!groups.has(parent)) groups.set(parent, []);
+                groups.get(parent).push(entry.target);
+            });
+
+            groups.forEach((elements) => {
+                elements.sort((a, b) => {
+                    const rectA = a.getBoundingClientRect();
+                    const rectB = b.getBoundingClientRect();
+                    return (rectA.top + rectA.left) - (rectB.top + rectB.left);
+                });
+
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        if (el.classList.contains('step-item')) {
+                            el.classList.remove('opacity-0', 'translate-y-8');
+                            el.classList.add('reveal');
+                        }
+                        if (el.classList.contains('line-item')) {
+                            el.classList.remove('scale-x-0');
+                            el.classList.add('scale-x-100');
+                        }
+                    }, index * 100);
+                    observer.unobserve(el);
+                });
             });
         }, observerOptions);
 
